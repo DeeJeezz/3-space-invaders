@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://d0enrhbr6wp8o"]
+
+[ext_resource type="Script" uid="uid://cel64dxhmeav1" path="res://scripts/bullet.gd" id="1_7nx3m"]
+[ext_resource type="Texture2D" uid="uid://sgu4qkup06r7" path="res://assets/img/SpaceshipKit.png" id="2_rqvhd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d57jl"]
+size = Vector2(6, 6)
+
+[sub_resource type="Gradient" id="Gradient_rqvhd"]
+offsets = PackedFloat32Array(0, 0.5258621, 0.6431034)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.9224138, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d57jl"]
+gradient = SubResource("Gradient_rqvhd")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[node name="TrooperBullet" type="RigidBody2D" unique_id=999181232]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_7nx3m")
+metadata/_custom_type_script = "uid://cel64dxhmeav1"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1600074862]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_rqvhd")
+region_enabled = true
+region_rect = Rect2(46, 238, 4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=104745963]
+shape = SubResource("RectangleShape2D_d57jl")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1500804560]
+energy = 0.6
+texture = SubResource("GradientTexture2D_d57jl")

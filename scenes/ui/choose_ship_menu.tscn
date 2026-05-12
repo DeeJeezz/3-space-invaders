@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://l0si6m3ginat"]
+
+[ext_resource type="Texture2D" uid="uid://c2n1hdq1rv5c5" path="res://assets/img/main_menu_background.png" id="1_lvsyx"]
+[ext_resource type="Script" uid="uid://dpoan3tb3bn48" path="res://scripts/ui/choose_ship_menu.gd" id="1_x0gqw"]
+[ext_resource type="Theme" uid="uid://blgq61r0lectd" path="res://resources/ui/ui_theme.tres" id="2_bqlrg"]
+[ext_resource type="Texture2D" uid="uid://dqccjoqdtu83t" path="res://resources/img/ships/fregate.tres" id="3_iwh3r"]
+[ext_resource type="Texture2D" uid="uid://csrrgb7yvi8y1" path="res://resources/img/ships/trooper.tres" id="4_iwh3r"]
+
+[node name="ChooseShipMenu" type="CanvasLayer" unique_id=1749645473]
+script = ExtResource("1_x0gqw")
+
+[node name="Background" type="TextureRect" parent="." unique_id=325634427]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_lvsyx")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=64503683]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -600.0
+offset_top = 64.0
+offset_right = -81.0
+offset_bottom = 108.0
+grow_horizontal = 0
+theme = ExtResource("2_bqlrg")
+theme_override_font_sizes/font_size = 42
+text = "Choose your ship"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2106108892]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -608.0
+offset_top = -224.0
+offset_right = -80.0
+offset_bottom = 6.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 1
+
+[node name="FregateButton" type="Button" parent="HBoxContainer" unique_id=1215007359]
+custom_minimum_size = Vector2(210, 230)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/FregateButton" unique_id=1341154749]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/FregateButton/VBoxContainer" unique_id=571889337]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("3_iwh3r")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HBoxContainer/FregateButton/VBoxContainer" unique_id=626167169]
+layout_mode = 2
+theme = ExtResource("2_bqlrg")
+text = "Fregate"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Divider" type="Control" parent="HBoxContainer" unique_id=2070934997]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="TrooperButton" type="Button" parent="HBoxContainer" unique_id=1631770539]
+custom_minimum_size = Vector2(210, 230)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/TrooperButton" unique_id=1179352132]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TrooperButton/VBoxContainer" unique_id=1176706091]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_iwh3r")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HBoxContainer/TrooperButton/VBoxContainer" unique_id=1384845501]
+layout_mode = 2
+theme = ExtResource("2_bqlrg")
+text = "Trooper"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="HBoxContainer/FregateButton" to="." method="_on_fregate_button_button_down"]
+[connection signal="button_down" from="HBoxContainer/TrooperButton" to="." method="_on_trooper_button_button_down"]

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://drlsucydv8wbn"]
+
+[ext_resource type="Script" uid="uid://btg4uomc1gyc0" path="res://scripts/ship.gd" id="1_xch8o"]
+[ext_resource type="PackedScene" uid="uid://db0quxct5p62m" path="res://scenes/ships/fregate/fregate_bullet.tscn" id="2_745mi"]
+[ext_resource type="Texture2D" uid="uid://dqccjoqdtu83t" path="res://resources/img/ships/fregate.tres" id="3_xch8o"]
+
+[node name="Fregate" type="Node2D" unique_id=98827906 node_paths=PackedStringArray("ship_sprite", "bullet_spawn_markers")]
+script = ExtResource("1_xch8o")
+bullet_scene = ExtResource("2_745mi")
+ship_sprite = NodePath("ShipSprite2D")
+bullet_spawn_markers = [NodePath("LeftBulletSpawnMarker"), NodePath("MiddleBulletSpawnMarker"), NodePath("RightBulletSpawnMarker")]
+
+[node name="ShipSprite2D" type="Sprite2D" parent="." unique_id=1173401924]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_xch8o")
+region_rect = Rect2(0, 257, 32, 30)
+
+[node name="LeftBulletSpawnMarker" type="Marker2D" parent="." unique_id=1087958015]
+position = Vector2(-16, -24)
+
+[node name="MiddleBulletSpawnMarker" type="Marker2D" parent="." unique_id=271696511]
+position = Vector2(0, -24)
+
+[node name="RightBulletSpawnMarker" type="Marker2D" parent="." unique_id=1707119030]
+position = Vector2(16, -24)

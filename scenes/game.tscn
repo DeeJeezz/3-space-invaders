@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bkvibfo0inspi"]
+
+[ext_resource type="PackedScene" uid="uid://fiajwujfj3yo" path="res://scenes/player.tscn" id="2_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://coyistkeib2gc" path="res://assets/img/game_background.jpg" id="2_yqjtg"]
+
+[node name="Game" type="Node2D" unique_id=1411791888]
+
+[node name="Background" type="Parallax2D" parent="." unique_id=1149004317]
+repeat_size = Vector2(0, 720)
+autoscroll = Vector2(0, 100)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=617325302]
+modulate = Color(0.5540973, 0.55409724, 0.55409724, 1)
+position = Vector2(640, 360)
+scale = Vector2(2, 2)
+texture = ExtResource("2_yqjtg")
+
+[node name="Player" parent="." unique_id=916422842 instance=ExtResource("2_lnu2h")]
+position = Vector2(648, 680)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1336821399]
+position = Vector2(640, 360)

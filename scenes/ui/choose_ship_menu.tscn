@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dpoan3tb3bn48" path="res://scripts/ui/choose_ship_menu.gd" id="1_x0gqw"]
 [ext_resource type="Theme" uid="uid://blgq61r0lectd" path="res://resources/ui/ui_theme.tres" id="2_bqlrg"]
 [ext_resource type="Texture2D" uid="uid://dqccjoqdtu83t" path="res://resources/img/ships/fregate.tres" id="3_iwh3r"]
+[ext_resource type="FontFile" uid="uid://bltenf2rbpxf1" path="res://assets/fonts/Led.ttf" id="3_vdiay"]
 [ext_resource type="Texture2D" uid="uid://csrrgb7yvi8y1" path="res://resources/img/ships/trooper.tres" id="4_iwh3r"]
 
 [node name="ChooseShipMenu" type="CanvasLayer" unique_id=1749645473]
@@ -27,9 +28,11 @@ offset_top = 64.0
 offset_right = -81.0
 offset_bottom = 108.0
 grow_horizontal = 0
-theme = ExtResource("2_bqlrg")
+theme_override_fonts/font = ExtResource("3_vdiay")
 theme_override_font_sizes/font_size = 42
 text = "Choose your ship"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2106108892]
 anchors_preset = 6

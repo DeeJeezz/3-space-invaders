@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dmghbgbio2675" path="res://scripts/ui/main_menu.gd" id="1_1g8jr"]
 [ext_resource type="Texture2D" uid="uid://c2n1hdq1rv5c5" path="res://assets/img/main_menu_background.png" id="1_fe2o3"]
 [ext_resource type="Theme" uid="uid://blgq61r0lectd" path="res://resources/ui/ui_theme.tres" id="2_1g8jr"]
+[ext_resource type="FontFile" uid="uid://bltenf2rbpxf1" path="res://assets/fonts/Led.ttf" id="3_m1kxf"]
 
 [node name="MainMenu" type="CanvasLayer" unique_id=1258220846]
 script = ExtResource("1_1g8jr")
@@ -25,7 +26,7 @@ offset_top = 140.0
 offset_right = 58.5
 offset_bottom = 163.0
 grow_horizontal = 2
-theme = ExtResource("2_1g8jr")
+theme_override_fonts/font = ExtResource("3_m1kxf")
 theme_override_font_sizes/font_size = 48
 text = "Space Invaders"
 horizontal_alignment = 1
@@ -37,18 +38,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 920
+theme_override_constants/margin_left = 850
 theme_override_constants/margin_top = 350
-theme_override_constants/margin_right = 180
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 200
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1385159706]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-theme_override_constants/separation = 2
+theme_override_constants/separation = 10
+alignment = 1
 
 [node name="StartGameButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1280208247]
 layout_mode = 2
 theme = ExtResource("2_1g8jr")
+theme_type_variation = &"GreenButton"
 text = "Start"
 
 [node name="OptionsButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1125541591]

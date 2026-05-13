@@ -1,5 +1,6 @@
 extends Node
 
+#region Ships
 enum ShipType {
 	FREGATE,
 	TROOPER,
@@ -15,6 +16,11 @@ const SHIPS_SCENES: Dictionary[ShipType, String] = {
 	ShipType.FREGATE: FREGATE_SHIP_SCENE_PATH,
 	ShipType.TROOPER: TROOPER_SHIP_SCENE_PATH,
 }
+#endregion
 
+#region UI
 const CHOOSE_SHIP_SCENE_PATH: String = "res://scenes/ui/choose_ship_menu.tscn"
+const OPTIONS_SCENE_PATH: String = "res://scenes/ui/options_menu.tscn"
+const MAIN_MENU_SCENE_PATH: String = "res://scenes/ui/main_menu.tscn"
+#endregion
 const GAME_SCENE_PATH: String = "res://scenes/game.tscn"

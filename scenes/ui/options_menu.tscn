@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://dtnqqvcgr6g81"]
+
+[ext_resource type="Script" uid="uid://d2cbnen2f6emc" path="res://scripts/ui/options_menu.gd" id="1_imaij"]
+[ext_resource type="Texture2D" uid="uid://c2n1hdq1rv5c5" path="res://assets/img/main_menu_background.png" id="1_wj2x4"]
+[ext_resource type="Theme" uid="uid://blgq61r0lectd" path="res://resources/ui/ui_theme.tres" id="2_imaij"]
+[ext_resource type="FontFile" uid="uid://bltenf2rbpxf1" path="res://assets/fonts/Led.ttf" id="3_c4822"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4822"]
+
+[node name="OptionsMenu" type="CanvasLayer" unique_id=396428076 node_paths=PackedStringArray("volume_slider", "volume_value_label", "output_device_option_button", "resolution_option_button", "display_option_button")]
+script = ExtResource("1_imaij")
+volume_slider = NodePath("OptionsPanel/Options/OptionsTabContainer/Audio/GridContainer/VolumeHSlider")
+volume_value_label = NodePath("OptionsPanel/Options/OptionsTabContainer/Audio/GridContainer/VolumeValueLabel")
+output_device_option_button = NodePath("OptionsPanel/Options/OptionsTabContainer/Audio/GridContainer/DevicesOptionButton")
+resolution_option_button = NodePath("OptionsPanel/Options/OptionsTabContainer/Video/GridContainer/ResolutionOptionButton")
+display_option_button = NodePath("OptionsPanel/Options/OptionsTabContainer/Video/GridContainer/DisplayOptionButton")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1833785591]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wj2x4")
+expand_mode = 2
+
+[node name="OptionsPanel" type="Panel" parent="." unique_id=912848515]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -592.0
+offset_right = -24.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("2_imaij")
+
+[node name="Label" type="Label" parent="OptionsPanel" unique_id=252940144]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.0
+offset_top = 80.0
+offset_right = 192.0
+offset_bottom = 124.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_c4822")
+theme_override_font_sizes/font_size = 42
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" type="PanelContainer" parent="OptionsPanel" unique_id=1165757343]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_imaij")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_c4822")
+
+[node name="OptionsTabContainer" type="TabContainer" parent="OptionsPanel/Options" unique_id=1863812095]
+layout_mode = 2
+current_tab = 0
+
+[node name="Audio" type="MarginContainer" parent="OptionsPanel/Options/OptionsTabContainer" unique_id=236660896]
+layout_mode = 2
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 15
+metadata/_tab_index = 0
+
+[node name="GridContainer" type="GridContainer" parent="OptionsPanel/Options/OptionsTabContainer/Audio" unique_id=2144735578]
+layout_mode = 2
+theme = ExtResource("2_imaij")
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 3
+
+[node name="DeviceLabel" type="Label" parent="OptionsPanel/Options/OptionsTabContainer/Audio/GridContainer" unique_id=1685960729]
+layout_mode = 2
+text = "Device"
+
+[node name="DevicesOptionButton" type="OptionButton" parent="OptionsPanel/Options/OptionsTabContainer/Audio/GridContainer" unique_id=1059549296]
+layout_mode = 2
+alignment = 1
+autowrap_trim_flags = 192
+selected = 0
+item_count = 2
+popup/item_0/text = "Default"
+popup/item_0/id = 0
+popup/item_1/text = "Динамики MacBook Pro"
+popup/item_1/id = 1
+
+[node name="Divider" type="Control" parent="OptionsPanel/Options/OptionsTabContainer/Audio/GridContainer" unique_id=201996601]
+layout_mode = 2
+
+[node name="VolumeLabel" type="Label" parent="OptionsPanel/Options/OptionsTabContainer/Audio/GridContainer" unique_id=1465910185]
+layout_mode = 2
+text = "Volume"
+
+[node name="VolumeHSlider" type="HSlider" parent="OptionsPanel/Options/OptionsTabContainer/Audio/GridContainer" unique_id=1054187039]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+value = 50.0
+rounded = true
+
+[node name="VolumeValueLabel" type="Label" parent="OptionsPanel/Options/OptionsTabContainer/Audio/GridContainer" unique_id=1930110520]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Video" type="MarginContainer" parent="OptionsPanel/Options/OptionsTabContainer" unique_id=1775327355]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 15
+metadata/_tab_index = 1
+
+[node name="GridContainer" type="GridContainer" parent="OptionsPanel/Options/OptionsTabContainer/Video" unique_id=339641345]
+layout_mode = 2
+theme = ExtResource("2_imaij")
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="DisplayLabel" type="Label" parent="OptionsPanel/Options/OptionsTabContainer/Video/GridContainer" unique_id=1192891832]
+layout_mode = 2
+text = "Display"
+
+[node name="DisplayOptionButton" type="OptionButton" parent="OptionsPanel/Options/OptionsTabContainer/Video/GridContainer" unique_id=1843601087]
+layout_mode = 2
+disabled = true
+selected = 0
+item_count = 2
+popup/item_0/text = "Display 1"
+popup/item_0/id = 0
+popup/item_1/text = "Display 2"
+popup/item_1/id = 1
+
+[node name="ResolutionLabel" type="Label" parent="OptionsPanel/Options/OptionsTabContainer/Video/GridContainer" unique_id=935756835]
+layout_mode = 2
+text = "Resolution"
+
+[node name="ResolutionOptionButton" type="OptionButton" parent="OptionsPanel/Options/OptionsTabContainer/Video/GridContainer" unique_id=73754578]
+custom_minimum_size = Vector2(263, 0)
+layout_mode = 2
+selected = 0
+item_count = 1
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OptionsPanel" unique_id=484114920]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -39.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="BackButton" type="Button" parent="OptionsPanel/HBoxContainer" unique_id=1887276786]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"YellowButton"
+text = "Back"
+
+[node name="SaveButton" type="Button" parent="OptionsPanel/HBoxContainer" unique_id=1838461063]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"GreenButton"
+text = "Save"
+
+[connection signal="value_changed" from="OptionsPanel/Options/OptionsTabContainer/Audio/GridContainer/VolumeHSlider" to="." method="_on_volume_h_slider_value_changed"]
+[connection signal="item_selected" from="OptionsPanel/Options/OptionsTabContainer/Video/GridContainer/DisplayOptionButton" to="." method="_on_display_option_button_item_selected"]
+[connection signal="button_down" from="OptionsPanel/HBoxContainer/BackButton" to="." method="_on_back_button_button_down"]

@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://c2n1hdq1rv5c5" path="res://assets/img/main_menu_background.png" id="1_lvsyx"]
 [ext_resource type="Script" uid="uid://dpoan3tb3bn48" path="res://scripts/ui/choose_ship_menu.gd" id="1_x0gqw"]
 [ext_resource type="Theme" uid="uid://blgq61r0lectd" path="res://resources/ui/ui_theme.tres" id="2_bqlrg"]
-[ext_resource type="Texture2D" uid="uid://dqccjoqdtu83t" path="res://resources/img/ships/fregate.tres" id="3_iwh3r"]
+[ext_resource type="Texture2D" uid="uid://dqccjoqdtu83t" path="res://resources/img/ships/player/fregate/fregate.tres" id="3_iwh3r"]
 [ext_resource type="FontFile" uid="uid://bltenf2rbpxf1" path="res://assets/fonts/Led.ttf" id="3_vdiay"]
-[ext_resource type="Texture2D" uid="uid://csrrgb7yvi8y1" path="res://resources/img/ships/trooper.tres" id="4_iwh3r"]
+[ext_resource type="Texture2D" uid="uid://csrrgb7yvi8y1" path="res://resources/img/ships/player/trooper/trooper.tres" id="4_iwh3r"]
 
 [node name="ChooseShipMenu" type="CanvasLayer" unique_id=1749645473]
 script = ExtResource("1_x0gqw")
@@ -52,6 +52,7 @@ alignment = 1
 custom_minimum_size = Vector2(210, 230)
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("2_bqlrg")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/FregateButton" unique_id=1341154749]
 layout_mode = 1
@@ -83,6 +84,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(210, 230)
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("2_bqlrg")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/TrooperButton" unique_id=1179352132]
 layout_mode = 1

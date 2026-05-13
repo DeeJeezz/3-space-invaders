@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://fiajwujfj3yo" path="res://scenes/player.tscn" id="2_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://coyistkeib2gc" path="res://assets/img/game_background.jpg" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://bmu7iqn2377h7" path="res://scenes/ui/hud.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://dp670walrmddf" path="res://scenes/enemy_director.tscn" id="4_lbhrr"]
 
 [node name="Game" type="Node2D" unique_id=1411791888]
 
@@ -23,3 +24,5 @@ position = Vector2(648, 680)
 position = Vector2(640, 360)
 
 [node name="HUD" parent="." unique_id=80155446 instance=ExtResource("3_lnu2h")]
+
+[node name="EnemyDirector" parent="." unique_id=90014114 instance=ExtResource("4_lbhrr")]

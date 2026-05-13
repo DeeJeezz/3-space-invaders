@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dhanipm0ccecb"]
+
+[ext_resource type="Script" uid="uid://btg4uomc1gyc0" path="res://scripts/ship.gd" id="1_11ddm"]
+[ext_resource type="PackedScene" uid="uid://d0enrhbr6wp8o" path="res://scenes/ships/player/trooper/trooper_bullet.tscn" id="2_roqtv"]
+[ext_resource type="PackedScene" uid="uid://12yifvxuwsb4" path="res://scenes/gun.tscn" id="3_ohy2e"]
+[ext_resource type="Texture2D" uid="uid://csrrgb7yvi8y1" path="res://resources/img/ships/player/trooper/trooper.tres" id="3_xkqos"]
+
+[node name="Trooper" type="RigidBody2D" unique_id=1492208104 node_paths=PackedStringArray("ship_sprite", "gun")]
+collision_mask = 4
+contact_monitor = true
+max_contacts_reported = 2
+script = ExtResource("1_11ddm")
+ship_sprite = NodePath("Sprite2D")
+gun = NodePath("Gun")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2071740995]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_xkqos")
+region_rect = Rect2(33, 288, 28, 29)
+
+[node name="LeftBulletSpawnMarker" type="Marker2D" parent="." unique_id=1580810224]
+position = Vector2(-11, -20)
+
+[node name="RightBulletSpawnMarker" type="Marker2D" parent="." unique_id=2049608952]
+position = Vector2(11, -20)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1507061384]
+polygon = PackedVector2Array(-21, 22, 21, 22, 21, -14, 6, -14, 2, -22, -2, -22, -6, -14, -21, -14)
+
+[node name="Gun" parent="." unique_id=1601945110 node_paths=PackedStringArray("bullet_spawn_markers") instance=ExtResource("3_ohy2e")]
+bullet_scene = ExtResource("2_roqtv")
+bullet_spawn_markers = [NodePath("../LeftBulletSpawnMarker"), NodePath("../RightBulletSpawnMarker")]
+fire_cooldown = 0.15
+bullet_speed = 700.0

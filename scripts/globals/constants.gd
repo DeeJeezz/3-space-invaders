@@ -13,11 +13,11 @@ enum ShipType {
 	TROOPER,
 }
 
-const FREGATE_SHIP_SCENE_PATH: String = "res://scenes/ships/fregate/fregate.tscn"
-const FREGATE_BULLET_SCENE_PATH: String = "res://scenes/ships/fregate/fregate_bullet.tscn"
+const FREGATE_SHIP_SCENE_PATH: String = "res://scenes/ships/player/fregate/fregate.tscn"
+const FREGATE_BULLET_SCENE_PATH: String = "res://scenes/ships/player/fregate/fregate_bullet.tscn"
 
-const TROOPER_SHIP_SCENE_PATH: String = "res://scenes/ships/trooper/trooper.tscn"
-const TROOPER_BULLET_SCENE_PATH: String = "res://scenes/ships/trooper/trooper_bullet.tscn"
+const TROOPER_SHIP_SCENE_PATH: String = "res://scenes/ships/player/trooper/trooper.tscn"
+const TROOPER_BULLET_SCENE_PATH: String = "res://scenes/ships/player/trooper/trooper_bullet.tscn"
 
 const SHIPS_SCENES: Dictionary[ShipType, String] = {
 	ShipType.FREGATE: FREGATE_SHIP_SCENE_PATH,

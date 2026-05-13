@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dxho8kec432wy"]
+
+[ext_resource type="Script" uid="uid://btg4uomc1gyc0" path="res://scripts/ship.gd" id="1_xud6c"]
+[ext_resource type="Texture2D" uid="uid://cpknpnda7h4bx" path="res://resources/img/ships/enemy/marauder/marauder.tres" id="2_xeo7y"]
+
+[node name="Marauder" type="RigidBody2D" unique_id=1737059473 node_paths=PackedStringArray("ship_sprite")]
+collision_layer = 2
+collision_mask = 4
+contact_monitor = true
+max_contacts_reported = 5
+script = ExtResource("1_xud6c")
+ship_sprite = NodePath("Sprite2D")
+metadata/_custom_type_script = "uid://btg4uomc1gyc0"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=913284192]
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("2_xeo7y")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1208225758]
+polygon = PackedVector2Array(-19, -2, -19, 19, -9, 26, 11, 26, 19, 19, 19, -2, 3, -26, -3, -26)
+
+[node name="BulletSpawnMarker" type="Marker2D" parent="." unique_id=250936628]
+position = Vector2(0, -27)

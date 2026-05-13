@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://db0quxct5p62m"]
 
 [ext_resource type="Script" uid="uid://cel64dxhmeav1" path="res://scripts/bullet.gd" id="1_p2ont"]
-[ext_resource type="Texture2D" uid="uid://sgu4qkup06r7" path="res://assets/img/SpaceshipKit.png" id="1_tah7y"]
+[ext_resource type="Texture2D" uid="uid://c2w7w6ya5bt54" path="res://resources/img/ships/player/fregate/fregate_bullet.tres" id="2_siapd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p2ont"]
 size = Vector2(6, 18)
@@ -16,16 +16,15 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 1)
 
-[node name="Bullet" type="RigidBody2D" unique_id=415786613]
+[node name="FregateBullet" type="RigidBody2D" unique_id=415786613]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 2
 script = ExtResource("1_p2ont")
 metadata/_custom_type_script = "uid://cel64dxhmeav1"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1572676075]
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_tah7y")
-region_enabled = true
+texture = ExtResource("2_siapd")
 region_rect = Rect2(14, 234, 4, 12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=510258320]

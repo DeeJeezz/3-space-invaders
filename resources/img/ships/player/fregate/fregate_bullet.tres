@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://c2w7w6ya5bt54"]
+
+[ext_resource type="Texture2D" uid="uid://sgu4qkup06r7" path="res://assets/img/SpaceshipKit.png" id="1_65135"]
+
+[resource]
+atlas = ExtResource("1_65135")
+region = Rect2(14, 234, 4, 12)

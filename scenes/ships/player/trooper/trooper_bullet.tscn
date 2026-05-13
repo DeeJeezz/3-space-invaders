@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://d0enrhbr6wp8o"]
 
 [ext_resource type="Script" uid="uid://cel64dxhmeav1" path="res://scripts/bullet.gd" id="1_7nx3m"]
-[ext_resource type="Texture2D" uid="uid://sgu4qkup06r7" path="res://assets/img/SpaceshipKit.png" id="2_rqvhd"]
+[ext_resource type="Texture2D" uid="uid://wldmy0xc1abo" path="res://resources/img/ships/player/trooper/trooper_bullet.tres" id="2_d3n3x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d57jl"]
-size = Vector2(6, 6)
+size = Vector2(4, 10)
 
 [sub_resource type="Gradient" id="Gradient_rqvhd"]
 offsets = PackedFloat32Array(0, 0.5258621, 0.6431034)
@@ -18,14 +18,13 @@ fill_to = Vector2(1, 1)
 
 [node name="TrooperBullet" type="RigidBody2D" unique_id=999181232]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 2
 script = ExtResource("1_7nx3m")
 metadata/_custom_type_script = "uid://cel64dxhmeav1"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1600074862]
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_rqvhd")
-region_enabled = true
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_d3n3x")
 region_rect = Rect2(46, 238, 4, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=104745963]

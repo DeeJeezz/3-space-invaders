@@ -156,9 +156,11 @@ text = "Resolution"
 custom_minimum_size = Vector2(263, 0)
 layout_mode = 2
 selected = 0
-item_count = 1
+item_count = 2
 popup/item_0/text = "1920x1080"
 popup/item_0/id = 0
+popup/item_1/text = "1280x720"
+popup/item_1/id = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="OptionsPanel" unique_id=484114920]
 layout_mode = 1
@@ -182,6 +184,9 @@ size_flags_horizontal = 3
 theme_type_variation = &"GreenButton"
 text = "Save"
 
+[connection signal="item_selected" from="OptionsPanel/Options/OptionsTabContainer/Audio/GridContainer/DevicesOptionButton" to="." method="_on_devices_option_button_item_selected"]
 [connection signal="value_changed" from="OptionsPanel/Options/OptionsTabContainer/Audio/GridContainer/VolumeHSlider" to="." method="_on_volume_h_slider_value_changed"]
 [connection signal="item_selected" from="OptionsPanel/Options/OptionsTabContainer/Video/GridContainer/DisplayOptionButton" to="." method="_on_display_option_button_item_selected"]
+[connection signal="item_selected" from="OptionsPanel/Options/OptionsTabContainer/Video/GridContainer/ResolutionOptionButton" to="." method="_on_resolution_option_button_item_selected"]
 [connection signal="button_down" from="OptionsPanel/HBoxContainer/BackButton" to="." method="_on_back_button_button_down"]
+[connection signal="button_down" from="OptionsPanel/HBoxContainer/SaveButton" to="." method="_on_save_button_button_down"]

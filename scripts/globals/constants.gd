@@ -1,5 +1,12 @@
 extends Node
 
+const AVAILABLE_RESOLUTIONS: Array[Vector2i] = [
+	Vector2i(1920, 1080),
+	Vector2i(1280, 720),
+]
+
+const MASTER_AUDIO_BUS_NAME: String = "Master"
+
 #region Ships
 enum ShipType {
 	FREGATE,

@@ -6,7 +6,7 @@ var hp: int = 3
 
 
 func _ready() -> void:
-	var ship_scene_path: String = Constants.SHIPS_SCENES[Session.chosen_ship]
+	var ship_scene_path: String = Constants.PLAYER_SHIPS_SCENES[Session.chosen_ship]
 	var ship_scene: PackedScene = load(ship_scene_path)
 	ship = ship_scene.instantiate()
 	add_child(ship)

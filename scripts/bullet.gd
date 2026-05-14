@@ -1,19 +1,18 @@
 class_name Bullet
-extends RigidBody2D
+extends Area2D
 
-const DIRECTION: Vector2 = Vector2.UP
+
+var _direction: Vector2 = Vector2.ZERO
 
 var speed: float = 500.0
 
 
+func shoot(direction: Vector2) -> void:
+	_direction = direction
+
+
 func _physics_process(delta: float) -> void:
-	var collision: KinematicCollision2D = move_and_collide(DIRECTION * speed * delta)
-	if collision:
-		var hit_object: Object = collision.get_collider()
-		if hit_object is Ship:
-			hit_object.take_hit()
-		queue_free()
-		
+	position += _direction * speed * delta
+
 	if position.y < 0:
 		queue_free()
-		

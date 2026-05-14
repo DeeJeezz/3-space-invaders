@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://dp670walrmddf"]
 
 [ext_resource type="Script" uid="uid://dx4pky41qvw55" path="res://scripts/enemy_director.gd" id="1_0l0im"]
-[ext_resource type="PackedScene" uid="uid://dxho8kec432wy" path="res://scenes/ships/enemy/marauder/marauder.tscn" id="2_a60s8"]
 
 [node name="EnemyDirector" type="Node2D" unique_id=90014114]
 script = ExtResource("1_0l0im")
-ship_scenes = Array[PackedScene]([ExtResource("2_a60s8")])

@@ -25,6 +25,11 @@ buses/default_bus_layout=""
 Session="*uid://bva5uir4utr8d"
 Constants="*uid://bev7oyh5oeqk"
 SaveManager="*uid://dwpxbyflsx63m"
+Signals="*uid://clw2r7suag6ws"
+
+[debug]
+
+gdscript/warnings/unused_signal=0
 
 [display]
 

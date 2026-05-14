@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://vmbcca0qu6om"]
+
+[ext_resource type="Script" uid="uid://cel64dxhmeav1" path="res://scripts/bullet.gd" id="1_c78dm"]
+[ext_resource type="Texture2D" uid="uid://cdy2hfkswh08r" path="res://resources/img/ships/enemy/marauder/marauder_bullet.tres" id="2_s1hlp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpa38"]
+size = Vector2(12, 12)
+
+[sub_resource type="Gradient" id="Gradient_rqvhd"]
+offsets = PackedFloat32Array(0, 0.5258621, 0.6431034)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.9224138, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s1hlp"]
+gradient = SubResource("Gradient_rqvhd")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[node name="MarauderBullet" type="Area2D" unique_id=1792558194]
+script = ExtResource("1_c78dm")
+metadata/_custom_type_script = "uid://cel64dxhmeav1"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1178281948]
+scale = Vector2(3, 3)
+texture = ExtResource("2_s1hlp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=544301984]
+shape = SubResource("RectangleShape2D_cpa38")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=60809199]
+energy = 0.6
+texture = SubResource("GradientTexture2D_s1hlp")

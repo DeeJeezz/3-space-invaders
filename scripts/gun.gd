@@ -15,7 +15,7 @@ var _can_shoot: bool = true
 
 
 ## Shoots [param bullet_scene] with [param bullet_speed] at [param bullet_spawn_markers] positions.
-func shoot() -> void:
+func shoot(direction: Vector2) -> void:
 	if not _can_shoot:
 		return
 
@@ -23,6 +23,7 @@ func shoot() -> void:
 		var bullet: Bullet = bullet_scene.instantiate()
 		bullet.global_position = bullet_spawn_marker.global_position
 		bullet.speed = bullet_speed
+		bullet.shoot(direction)
 		get_tree().root.add_child(bullet)
 	_can_shoot = false
 	var shoot_timer: SceneTreeTimer = get_tree().create_timer(fire_cooldown)

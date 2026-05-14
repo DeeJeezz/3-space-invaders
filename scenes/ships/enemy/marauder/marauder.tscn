@@ -2,14 +2,16 @@
 
 [ext_resource type="Script" uid="uid://btg4uomc1gyc0" path="res://scripts/ship.gd" id="1_xud6c"]
 [ext_resource type="Texture2D" uid="uid://cpknpnda7h4bx" path="res://resources/img/ships/enemy/marauder/marauder.tres" id="2_xeo7y"]
+[ext_resource type="PackedScene" uid="uid://ck5sluku2at7y" path="res://scenes/components/explosion.tscn" id="3_x4ddk"]
 
-[node name="Marauder" type="RigidBody2D" unique_id=1737059473 node_paths=PackedStringArray("ship_sprite")]
+[node name="Marauder" type="RigidBody2D" unique_id=1737059473 node_paths=PackedStringArray("ship_sprite", "explosion")]
 collision_layer = 2
 collision_mask = 4
 contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_xud6c")
 ship_sprite = NodePath("Sprite2D")
+explosion = NodePath("Explosion")
 metadata/_custom_type_script = "uid://btg4uomc1gyc0"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=913284192]
@@ -21,3 +23,5 @@ polygon = PackedVector2Array(-19, -2, -19, 19, -9, 26, 11, 26, 19, 19, 19, -2, 3
 
 [node name="BulletSpawnMarker" type="Marker2D" parent="." unique_id=250936628]
 position = Vector2(0, -27)
+
+[node name="Explosion" parent="." unique_id=1639110719 instance=ExtResource("3_x4ddk")]

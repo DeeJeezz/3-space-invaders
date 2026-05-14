@@ -2,6 +2,7 @@ class_name Player
 extends Node2D
 
 var ship: Ship
+var hp: int = 3
 
 
 func _ready() -> void:

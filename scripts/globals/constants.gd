@@ -6,6 +6,7 @@ const AVAILABLE_RESOLUTIONS: Array[Vector2i] = [
 ]
 
 const MASTER_AUDIO_BUS_NAME: String = "Master"
+const GAME_SCENE_PATH: String = "res://scenes/game.tscn"
 
 #region Ships
 enum ShipType {
@@ -25,9 +26,18 @@ const SHIPS_SCENES: Dictionary[ShipType, String] = {
 }
 #endregion
 
+#region Explosions
+const _EXPLOSION_1_SPRITE_FRAMES_PATH: String = "res://resources/img/misc/explosion1.tres"
+const _EXPLOSION_2_SPRITE_FRAMES_PATH: String = "res://resources/img/misc/explosion2.tres"
+
+const EXPLOSIONS: Array[String] = [
+	_EXPLOSION_1_SPRITE_FRAMES_PATH,
+	_EXPLOSION_2_SPRITE_FRAMES_PATH,
+]
+#endregion
+
 #region UI
 const CHOOSE_SHIP_SCENE_PATH: String = "res://scenes/ui/choose_ship_menu.tscn"
 const OPTIONS_SCENE_PATH: String = "res://scenes/ui/options_menu.tscn"
 const MAIN_MENU_SCENE_PATH: String = "res://scenes/ui/main_menu.tscn"
 #endregion
-const GAME_SCENE_PATH: String = "res://scenes/game.tscn"

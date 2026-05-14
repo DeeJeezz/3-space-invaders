@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://ck5sluku2at7y"]
+
+[node name="Explosion" type="AnimatedSprite2D" unique_id=1639110719]
+autoplay = "default"

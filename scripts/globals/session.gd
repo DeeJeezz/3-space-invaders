@@ -10,8 +10,13 @@ var selected_output_device: String
 #region VideoOptions
 var selected_display: int = 0
 var selected_resolution: Vector2 = Constants.AVAILABLE_RESOLUTIONS[0]
-
 #endregion
+
+var current_score: int = 0
+
+
+func reset() -> void:
+	current_score = 0
 
 
 func apply_options() -> void:
@@ -35,15 +40,15 @@ func serialize() -> Dictionary:
 			}
 		}
 	}
-	
-	
+
+
 func deserialize(session_data: Dictionary) -> void:
 	if not session_data:
 		return
 	var audio_settings: Dictionary = session_data["options"]["audio"]
 	volume = audio_settings["volume"]
 	selected_output_device = audio_settings["output_device"]
-	
+
 	var video_settings: Dictionary = session_data["options"]["video"]
 	selected_display = video_settings["display"]
 	selected_resolution = Vector2(video_settings["resolution"][0], video_settings["resolution"][1])

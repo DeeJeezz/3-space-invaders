@@ -9,6 +9,7 @@
 
 [node name="Marauder" type="Node2D" unique_id=1823348016 node_paths=PackedStringArray("ship_sprite", "gun", "explosion", "hurt_box")]
 script = ExtResource("1_xud6c")
+score_for_destroy = 150
 ship_sprite = NodePath("FlickeringSprite2D")
 gun = NodePath("Gun")
 explosion = NodePath("Explosion")
@@ -20,7 +21,7 @@ texture = ExtResource("2_xeo7y")
 script = ExtResource("3_334mt")
 flickering_speed = 16.0
 flicker_times = 3
-target_color = Color(1, 1, 1, 0.3)
+target_color = Color(1, 0.18431373, 0.3137255, 0.3019608)
 metadata/_custom_type_script = "uid://c8k7fq24qchsy"
 
 [node name="BulletSpawnMarker" type="Marker2D" parent="." unique_id=250936628]
@@ -29,12 +30,12 @@ position = Vector2(0, -30)
 [node name="Explosion" parent="." unique_id=1639110719 instance=ExtResource("3_x4ddk")]
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=93266177]
-collision_layer = 7
-collision_mask = 7
+collision_layer = 0
+collision_mask = 4
 monitorable = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtBox" unique_id=1208225758]
-polygon = PackedVector2Array(-19, -2, -19, 19, -9, 26, 11, 26, 19, 19, 19, -2, 3, -26, -3, -26)
+polygon = PackedVector2Array(-9, -17, -20, -3, -20, 26, 20, 26, 20, -2, 9, -17, 3, -26, -3, -26)
 
 [node name="Gun" parent="." unique_id=1601945110 node_paths=PackedStringArray("bullet_spawn_markers") instance=ExtResource("5_0n4x6")]
 bullet_scene = ExtResource("6_wjnci")

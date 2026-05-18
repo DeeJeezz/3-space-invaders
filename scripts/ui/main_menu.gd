@@ -2,6 +2,7 @@ extends CanvasLayer
 
 
 func _init() -> void:
+	Session.reset()
 	Session.load_session()
 	Session.apply_options()
 

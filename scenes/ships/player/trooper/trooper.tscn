@@ -7,11 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://csrrgb7yvi8y1" path="res://resources/img/ships/player/trooper/trooper.tres" id="3_xkqos"]
 [ext_resource type="PackedScene" uid="uid://ck5sluku2at7y" path="res://scenes/components/explosion.tscn" id="5_y4y3y"]
 
-[node name="Trooper" type="RigidBody2D" unique_id=1492208104 node_paths=PackedStringArray("ship_sprite", "gun", "explosion", "hurt_box")]
-collision_mask = 4
-contact_monitor = true
-max_contacts_reported = 10
+[node name="Trooper" type="Node2D" unique_id=2123985057 node_paths=PackedStringArray("ship_sprite", "gun", "explosion", "hurt_box")]
 script = ExtResource("1_11ddm")
+speed = 325.0
+max_hp = 3
 ship_sprite = NodePath("FlickeringSprite2D")
 gun = NodePath("Gun")
 explosion = NodePath("Explosion")
@@ -22,7 +21,8 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_xkqos")
 region_rect = Rect2(33, 288, 28, 29)
 script = ExtResource("3_mgnb5")
-flickering_speed = 4.0
+flickering_speed = 16.0
+flicker_times = 3
 target_color = Color(1, 1, 1, 0.3)
 metadata/_custom_type_script = "uid://c8k7fq24qchsy"
 
@@ -35,14 +35,15 @@ position = Vector2(11, -20)
 [node name="Gun" parent="." unique_id=1601945110 node_paths=PackedStringArray("bullet_spawn_markers") instance=ExtResource("3_ohy2e")]
 bullet_scene = ExtResource("2_roqtv")
 bullet_spawn_markers = [NodePath("../LeftBulletSpawnMarker"), NodePath("../RightBulletSpawnMarker")]
-fire_cooldown = 0.15
-bullet_speed = 700.0
+fire_cooldown = 0.4
+bullet_speed = 400.0
 
 [node name="Explosion" parent="." unique_id=1639110719 instance=ExtResource("5_y4y3y")]
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=1562293873]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtBox" unique_id=1507061384]
 polygon = PackedVector2Array(-21, 22, 21, 22, 21, -14, 6, -14, 2, -22, -2, -22, -6, -14, -21, -14)
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

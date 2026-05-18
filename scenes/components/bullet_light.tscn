@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://6mdocq1csu10"]
+
+[sub_resource type="Gradient" id="Gradient_siapd"]
+offsets = PackedFloat32Array(0, 0.5258621, 0.6431034)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.9224138, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p2ont"]
+gradient = SubResource("Gradient_siapd")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[node name="BulletLight" type="PointLight2D" unique_id=1726703239]
+energy = 0.3
+texture = SubResource("GradientTexture2D_p2ont")

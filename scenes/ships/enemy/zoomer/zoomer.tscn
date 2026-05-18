@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cclog2fo7pgti"]
+
+[ext_resource type="Script" uid="uid://btg4uomc1gyc0" path="res://scripts/ship.gd" id="1_30ooe"]
+[ext_resource type="Script" uid="uid://c8k7fq24qchsy" path="res://scripts/components/flickering_sprite.gd" id="2_gavk8"]
+[ext_resource type="Texture2D" uid="uid://bqtnpi0cuafvn" path="res://resources/img/ships/enemy/zoomer/zoomer.tres" id="2_pjg0k"]
+[ext_resource type="PackedScene" uid="uid://12yifvxuwsb4" path="res://scenes/gun.tscn" id="3_jwpqv"]
+[ext_resource type="PackedScene" uid="uid://ck5sluku2at7y" path="res://scenes/components/explosion.tscn" id="4_6ogie"]
+[ext_resource type="PackedScene" uid="uid://dhsle26yp1ar2" path="res://scenes/ships/enemy/zoomer/zoomer_bullet.tscn" id="5_j8x1a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ogie"]
+size = Vector2(40, 42)
+
+[node name="Zoomer" type="Node2D" unique_id=606696431 node_paths=PackedStringArray("ship_sprite", "gun", "explosion", "hurt_box")]
+script = ExtResource("1_30ooe")
+max_hp = 2
+ship_sprite = NodePath("FlickeringSprite")
+gun = NodePath("Gun")
+explosion = NodePath("Explosion")
+hurt_box = NodePath("HurtBox")
+metadata/_custom_type_script = "uid://btg4uomc1gyc0"
+
+[node name="FlickeringSprite" type="Sprite2D" parent="." unique_id=408040511]
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("2_pjg0k")
+script = ExtResource("2_gavk8")
+flickering_speed = 16.0
+flicker_times = 3
+target_color = Color(1, 0.18431373, 0.3137255, 0.3019608)
+metadata/_custom_type_script = "uid://c8k7fq24qchsy"
+
+[node name="Gun" parent="." unique_id=1601945110 node_paths=PackedStringArray("bullet_spawn_markers") instance=ExtResource("3_jwpqv")]
+bullet_scene = ExtResource("5_j8x1a")
+bullet_spawn_markers = [NodePath("../LeftBulletSpawnMarker"), NodePath("../RightBulletSpawnMarker")]
+
+[node name="Explosion" parent="." unique_id=1639110719 instance=ExtResource("4_6ogie")]
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=981054551]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=936672553]
+shape = SubResource("RectangleShape2D_6ogie")
+
+[node name="LeftBulletSpawnMarker" type="Marker2D" parent="." unique_id=78094934]
+position = Vector2(-12, -28)
+
+[node name="RightBulletSpawnMarker" type="Marker2D" parent="." unique_id=535340185]
+position = Vector2(12, -28)

@@ -1,20 +1,26 @@
 class_name Enemy
 extends Node2D
 
-@export var minimum_fire_cooldown: float = 3.0
-@export var maximum_fire_cooldown: float = 8.0
-@export var shoot_timer: Timer
-
 var ship: Ship
-var can_shoot: bool = false
+var hp: int
+
+
+signal destroyed (enemy: Enemy)
 
 
 func _ready() -> void:
-	shoot_timer.timeout.connect(shoot)
-	if can_shoot:
-		shoot_timer.start(randf_range(minimum_fire_cooldown, maximum_fire_cooldown))
+	hp = ship.max_hp
+	ship.hit.connect(_take_hit)
 
 
 func shoot() -> void:
 	ship.shoot()
-	shoot_timer.start(randf_range(minimum_fire_cooldown, maximum_fire_cooldown))
+
+
+func _take_hit() -> void:
+	hp -= 1
+	if hp <= 0:
+		destroyed.emit(self)
+		# Wait until destroy animation finished.
+		await ship.destroy()
+		queue_free()

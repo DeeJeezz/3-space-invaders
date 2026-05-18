@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dhsle26yp1ar2"]
+
+[ext_resource type="Script" uid="uid://cel64dxhmeav1" path="res://scripts/bullet.gd" id="1_boki0"]
+[ext_resource type="Texture2D" uid="uid://uh2dh0kdrkj6" path="res://resources/img/ships/enemy/zoomer/zoomer_bullet.tres" id="2_6hva4"]
+[ext_resource type="PackedScene" uid="uid://6mdocq1csu10" path="res://scenes/components/bullet_light.tscn" id="3_muui0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6hva4"]
+size = Vector2(6, 24)
+
+[node name="ZoomerBullet" type="Area2D" unique_id=103279156]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_boki0")
+metadata/_custom_type_script = "uid://cel64dxhmeav1"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2120757427]
+scale = Vector2(2, 2)
+texture = ExtResource("2_6hva4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=400483523]
+shape = SubResource("RectangleShape2D_6hva4")
+
+[node name="BulletLight" parent="." unique_id=1726703239 instance=ExtResource("3_muui0")]

@@ -1,12 +1,15 @@
 class_name Ship
 extends Node2D
 
+signal hit
+
 const WALL_OFFSET: float = 5
 
 @export_category("Settings")
 ## Ship movement speed.
 @export var speed: float = 450.0
-@export var hp: int = 4
+@export var max_hp: int = 4
+@export var score_for_destroy: int = 100
 
 @export_category("Nodes")
 @export var ship_sprite: FlickeringSprite
@@ -24,6 +27,7 @@ func _ready() -> void:
 	var ship_size: Vector2 = ship_sprite.region_rect.size * ship_sprite.scale
 	_border_offset = WALL_OFFSET + (ship_size.x / 2)
 	hurt_box.area_entered.connect(_on_hurt_box_area_entered)
+	hurt_box.monitorable = false
 
 
 ## Moves ship toward [param direction] with [param speed]
@@ -45,20 +49,24 @@ func destroy() -> void:
 	explosion.visible = true
 	explosion.sprite_frames = load(Constants.EXPLOSIONS.pick_random())
 	explosion.play()
-	Signals.enemy_destroyed.emit()
-	var timer: SceneTreeTimer = get_tree().create_timer(1)
-	timer.timeout.connect(get_parent().queue_free)
+	await explosion.animation_finished
 
 
-## Call when ship should take hit.
-func take_hit() -> void:
-	hp -= 1
-	_take_hit()
-	if hp <= 0:
-		destroy()
+func _get_configuration_warnings():
+	var warnings = []
+	if ship_sprite == null:
+		warnings.append("Ship sprite must be set")
+	if gun == null:
+		warnings.append("Gun must be set")
+	if explosion == null:
+		warnings.append("Explosion must be set")
+	if hurt_box == null:
+		warnings.append("HurtBox must be set")
+	return warnings
 
 
 func _take_hit() -> void:
+	hit.emit()
 	ship_sprite.flicker()
 
 
@@ -67,7 +75,6 @@ func _clamp_position() -> void:
 
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
-	print('got hit')
 	if area is Bullet:
 		area.queue_free()
-		take_hit()
+		_take_hit()

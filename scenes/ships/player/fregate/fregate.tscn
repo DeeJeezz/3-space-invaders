@@ -8,11 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://ck5sluku2at7y" path="res://scenes/components/explosion.tscn" id="5_lbet7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gj0v1"]
-size = Vector2(48, 45)
+size = Vector2(50, 45)
 
 [node name="Fregate" type="Node2D" unique_id=87240959 node_paths=PackedStringArray("ship_sprite", "gun", "explosion", "hurt_box")]
 script = ExtResource("1_xch8o")
-speed = 400.0
+speed = 250.0
 ship_sprite = NodePath("FlickeringSprite2D")
 gun = NodePath("Gun")
 explosion = NodePath("Explosion")
@@ -23,8 +23,9 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_xch8o")
 region_rect = Rect2(0, 257, 32, 30)
 script = ExtResource("3_4imde")
-flickering_speed = 4.0
-target_color = Color(1, 1, 1, 0.3)
+flickering_speed = 16.0
+flicker_times = 3
+target_color = Color(0.9999729, 0.18594262, 0.31256697, 0.30200002)
 metadata/_custom_type_script = "uid://c8k7fq24qchsy"
 
 [node name="LeftBulletSpawnMarker" type="Marker2D" parent="." unique_id=1087958015]
@@ -36,10 +37,13 @@ position = Vector2(9, -33)
 [node name="Gun" parent="." unique_id=1601945110 node_paths=PackedStringArray("bullet_spawn_markers") instance=ExtResource("3_tq8f5")]
 bullet_scene = ExtResource("2_745mi")
 bullet_spawn_markers = [NodePath("../LeftBulletSpawnMarker"), NodePath("../RightBulletSpawnMarker")]
+fire_cooldown = 0.55
 
 [node name="Explosion" parent="." unique_id=1639110719 instance=ExtResource("5_lbet7")]
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=588883895]
+collision_layer = 0
+collision_mask = 8
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1942843303]

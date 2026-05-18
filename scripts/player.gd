@@ -10,6 +10,9 @@ func _ready() -> void:
 	var ship_scene: PackedScene = load(ship_scene_path)
 	ship = ship_scene.instantiate()
 	add_child(ship)
+	ship.hit.connect(_on_ship_take_hit)
+	
+	hp = ship.max_hp
 
 
 func _process(delta: float) -> void:
@@ -23,3 +26,7 @@ func _handle_input(delta: float) -> void:
 
 	if Input.is_action_pressed("shoot"):
 		ship.shoot()
+
+
+func _on_ship_take_hit() -> void:
+	hp -= 1

@@ -2,23 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cel64dxhmeav1" path="res://scripts/bullet.gd" id="1_p2ont"]
 [ext_resource type="Texture2D" uid="uid://c2w7w6ya5bt54" path="res://resources/img/ships/player/fregate/fregate_bullet.tres" id="2_siapd"]
+[ext_resource type="PackedScene" uid="uid://6mdocq1csu10" path="res://scenes/components/bullet_light.tscn" id="3_6yu7e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p2ont"]
 size = Vector2(6, 18)
 
-[sub_resource type="Gradient" id="Gradient_rqvhd"]
-offsets = PackedFloat32Array(0, 0.5258621, 0.6431034)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.9224138, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_p2ont"]
-gradient = SubResource("Gradient_rqvhd")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 1)
-
 [node name="FregateBullet" type="Area2D" unique_id=1475985967]
-collision_layer = 7
-collision_mask = 7
+collision_layer = 4
+collision_mask = 0
 monitoring = false
 script = ExtResource("1_p2ont")
 
@@ -30,6 +21,4 @@ region_rect = Rect2(14, 234, 4, 12)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=510258320]
 shape = SubResource("RectangleShape2D_p2ont")
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1395628691]
-energy = 0.6
-texture = SubResource("GradientTexture2D_p2ont")
+[node name="BulletLight" parent="." unique_id=1726703239 instance=ExtResource("3_6yu7e")]

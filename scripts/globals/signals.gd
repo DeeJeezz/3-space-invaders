@@ -1,3 +1,4 @@
 extends Node
 
-signal enemy_destroyed
+
+signal add_score (score: int)

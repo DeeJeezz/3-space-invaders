@@ -14,9 +14,10 @@ enum ShipType {
 	FREGATE,
 	TROOPER,
 	MARAUDER,
+	ZOOMER,
 }
 
-var ENEMIES_SHIP_TYPES: Array[Constants.ShipType] = [ShipType.MARAUDER]
+var ENEMIES_SHIP_TYPES: Array[Constants.ShipType] = [ShipType.MARAUDER, ShipType.ZOOMER]
 
 const FREGATE_SHIP_SCENE_PATH: String = "res://scenes/ships/player/fregate/fregate.tscn"
 const FREGATE_BULLET_SCENE_PATH: String = "res://scenes/ships/player/fregate/fregate_bullet.tscn"
@@ -27,12 +28,16 @@ const TROOPER_BULLET_SCENE_PATH: String = "res://scenes/ships/player/trooper/tro
 const MARAUDER_SHIP_SCENE_PATH: String = "res://scenes/ships/enemy/marauder/marauder.tscn"
 const MARAUDER_BULLET_SCENE_PATH: String = "res://scenes/ships/enemy/marauder/marauder_bullet.tscn"
 
+const ZOOMER_SHIP_SCENE_PATH: String = "res://scenes/ships/enemy/zoomer/zoomer.tscn"
+const ZOOMER_BULLET_SCENE_PATH: String = "res://scenes/ships/enemy/zoomer/zoomer_bullet.tscn"
+
 const PLAYER_SHIPS_SCENES: Dictionary[ShipType, String] = {
 	ShipType.FREGATE: FREGATE_SHIP_SCENE_PATH,
 	ShipType.TROOPER: TROOPER_SHIP_SCENE_PATH,
 }
 const ENEMY_SHIPS_SCENES: Dictionary[ShipType, String] = {
 	ShipType.MARAUDER: MARAUDER_SHIP_SCENE_PATH,
+	ShipType.ZOOMER: ZOOMER_SHIP_SCENE_PATH,
 }
 #endregion
 

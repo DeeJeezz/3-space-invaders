@@ -2,5 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dx4pky41qvw55" path="res://scripts/enemy_director.gd" id="1_0l0im"]
 
-[node name="EnemyDirector" type="Node2D" unique_id=90014114]
+[node name="EnemyDirector" type="Node2D" unique_id=90014114 node_paths=PackedStringArray("shoot_timer", "move_timer")]
 script = ExtResource("1_0l0im")
+shoot_timer = NodePath("ShootTimer")
+move_timer = NodePath("MoveTimer")
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=495511848]
+one_shot = true
+
+[node name="MoveTimer" type="Timer" parent="." unique_id=3957848]
+one_shot = true

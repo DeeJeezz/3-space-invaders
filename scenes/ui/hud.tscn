@@ -1,20 +1,38 @@
 [gd_scene format=3 uid="uid://bmu7iqn2377h7"]
 
 [ext_resource type="Theme" uid="uid://blgq61r0lectd" path="res://resources/ui/ui_theme.tres" id="1_0mwgc"]
+[ext_resource type="Script" uid="uid://dbkxa8ik7wt3v" path="res://scripts/ui/hud.gd" id="1_hqnrr"]
 
-[node name="HUD" type="CanvasLayer" unique_id=80155446]
+[node name="HUD" type="CanvasLayer" unique_id=80155446 node_paths=PackedStringArray("score_label", "hp_label")]
+script = ExtResource("1_hqnrr")
+score_label = NodePath("Panel/ScoreLabel")
+hp_label = NodePath("Panel/HPLabel")
 
 [node name="Panel" type="Panel" parent="." unique_id=117219082]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 24.0
+offset_bottom = 32.0
 grow_horizontal = 2
 theme = ExtResource("1_0mwgc")
 
-[node name="Label" type="Label" parent="Panel" unique_id=2063023511]
+[node name="ScoreLabel" type="Label" parent="Panel" unique_id=2063023511]
 layout_mode = 1
-offset_right = 79.0
-offset_bottom = 23.0
-text = "Score: 100"
+offset_left = 25.0
+offset_right = 133.0
+offset_bottom = 29.0
+text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HPLabel" type="Label" parent="Panel" unique_id=1086122226]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -93.0
+offset_right = -25.0
+offset_bottom = 29.0
+grow_horizontal = 0
+text = "HP: 3"
 horizontal_alignment = 1
 vertical_alignment = 1

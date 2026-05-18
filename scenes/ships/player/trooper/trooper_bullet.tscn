@@ -2,23 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cel64dxhmeav1" path="res://scripts/bullet.gd" id="1_7nx3m"]
 [ext_resource type="Texture2D" uid="uid://wldmy0xc1abo" path="res://resources/img/ships/player/trooper/trooper_bullet.tres" id="2_d3n3x"]
+[ext_resource type="PackedScene" uid="uid://6mdocq1csu10" path="res://scenes/components/bullet_light.tscn" id="3_eqo4i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d57jl"]
-size = Vector2(4, 10)
-
-[sub_resource type="Gradient" id="Gradient_rqvhd"]
-offsets = PackedFloat32Array(0, 0.5258621, 0.6431034)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.9224138, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_d57jl"]
-gradient = SubResource("Gradient_rqvhd")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 1)
+size = Vector2(4, 12)
 
 [node name="TrooperBullet" type="Area2D" unique_id=481070313]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 0
 input_pickable = false
 monitoring = false
 linear_damp = 0.0
@@ -26,13 +17,11 @@ angular_damp = 0.0
 script = ExtResource("1_7nx3m")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1600074862]
-scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_d3n3x")
 region_rect = Rect2(46, 238, 4, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=104745963]
 shape = SubResource("RectangleShape2D_d57jl")
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1500804560]
-energy = 0.6
-texture = SubResource("GradientTexture2D_d57jl")
+[node name="BulletLight" parent="." unique_id=1726703239 instance=ExtResource("3_eqo4i")]
+position = Vector2(0, 1)
